@@ -1,0 +1,27 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.p">
+        <title>Document</title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <h1>Capstone Title</h1>
+
+        <ul>
+            <% if (user) { %>
+                <!--Handled in the controller and routes-->
+                <li><a href="/">Home</a></li>
+                <li><a href="/user">User Page</a></li>
+                <li><a href="/logout">Log Out</a></li>
+                
+                <!--Greet the current user if there is one-->
+                <h2>Welcome, <%= user.email %></h2>
+            <% } else { %>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            <% } %>
+        </ul>
+
+    </body>
+</html>

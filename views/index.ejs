@@ -7,21 +7,17 @@
     <title>Capstone Home</title>
  </head>
  <body>
+   <!--Link the header to this page-->
+   <%- include('partials/header'); -%>
+
     <h1>Capstone Home Page!</h1>
 
     <!--Links to sign in log in or log out-->
     <ul>
       <!--Use embedded JS to show content whether a user is logged in or not-->
-      <% if (user) { %>
-         <!--Handled in the controller and routes-->
-         <li><a href="/logout">Log Out</a></li>
-         <li><a href="/user">User Page</a></li>
-         <!--Greet the current user if there is one-->
-         <h2>Welcome, <%= user.email %></h2>
-      <% } else { %>
-         <li><a href="/login">Log In</a></li>
-         <li><a href="/signup">Sign Up</a></li>
-      <% } %>
+      
+      
+      
     </ul>
 
  </body>
