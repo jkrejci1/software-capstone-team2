@@ -1,0 +1,161 @@
+<!--Initial Homepage HTML using ejs-->
+<!DOCTYPE html>
+<html lang='en'>
+ <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Capstone Signup</title>
+ </head>
+ <body>
+    <h1>Capstone Signup Page!</h1>
+
+    <!--Form for signing up-->
+    <form>
+        <h2>Sign up</h2>
+        <!--Hidden when the user isn't a verified worker but pops up to let you know you're signing in as one-->
+        <h3 id="workerHeader" style="display:none">Signing up as worker</h3>
+        <!--Label information for entering email and possible error-->
+        <label for="email">Email</label>
+        <input type="text" name="email" required />
+        <div class="email error"></div>
+        <!--Label information for entering password and possible error-->
+        <label for="password">Password</label>
+        <input type="password" name="password" required />
+        <div class="password error"></div>
+        
+        <!--Button to sign up-->
+        <button>Sign up</button>
+        <!--Button for a worker to click to sign up as a worker-->
+        <!--<button class="worker">I'm a Worker</button>-->
+    </form>
+    <!--Button for a worker to click to sign up as a worker-->
+    <form class="form2">
+        <!--Hidden label that will pop up if the user attempts to sign in as a worker-->
+        <label id="workPassLabel" for="workPassword" style="display:none">Company Code</label>
+        <input type="password" name="workPassword" style="display:none"/>
+        <div class="workPassError"></div>
+        <button class="worker">I'm a Worker</button>
+    </form>
+
+ </body>
+
+ <!--JavaScript for handeling the sign up process-->
+ <script>
+    const form = document.querySelector('form');
+    const form2 = document.querySelector('.form2')
+    const emailError = document.querySelector('.email.error')
+    const passwordError = document.querySelector('.password.error')
+    const workPassError = document.querySelector('.workPassError')
+
+    //Default permissions for user
+    let userStatus = "customer"
+
+    form2.addEventListener('submit', async (e) => {
+        e.preventDefault(); //Prevents refresh from
+
+        console.log("BUTTON PRESS")
+        console.log("Hello there jack: ", e.submitter.className);
+
+        //Attempt to fix
+        //If the worker button was pressed then we should give the user a chance to prove that they're a worker
+        if (e.submitter.className == "worker") {
+            console.log("Worker button pressed")
+
+            //Display the form and the label for the company password check
+            document.getElementById('workPassLabel').style.display = "block"
+            form2.workPassword.style.display = "block"
+
+            //Have the text in the worker button now change 
+            e.submitter.textContent = "Submit Code"
+            e.submitter.className = "submitCode" //Class name of the button changes to submitCode
+
+        //Now if the submitCode button is pressed, check if the code entered is correct
+        } else if(e.submitter.className == "submitCode") {
+            console.log("You hit the submit code button!")
+            workPassError.textContent = '' //Resets the errors for work password
+
+            //Get the password entered by the user
+            const workPass = form2.workPassword.value
+
+            //If the workpassword is equal to the right code then give them worker permissions when sigining in
+            //INITIAL WORK PASSWORD IS HERE!!
+            if (workPass == "12345") {
+                //Change the userStatus to a worker
+                userStatus = "worker"
+                console.log("User Status:", userStatus)
+
+                //Hide the company password label and form and button and notify the user they entered the correct code
+                document.getElementById('workPassLabel').style.display = "none"
+                e.submitter.style.display = "none"
+                form2.workPassword.style.display = "none"
+
+
+                //Display the worker header to know we're signing up as one
+                document.getElementById('workerHeader').style.display = "block"
+
+            //Show an error to the user
+            } else {
+                workPassError.textContent = "Incorrect Code!"
+            }
+        } else {
+            console.log("ERROR!")
+        }
+
+    })
+
+    //Listen for when the submit button is pressed then fire function to take in event object
+    form.addEventListener('submit', async (e) => {
+
+        e.preventDefault(); //Prevents refresh from happening
+
+        //e.submitter.className will give you the class of the button pushed so you can tell which one is pushed
+        console.log("Hello there jack: ", e.submitter.className);
+
+       
+            //Reset the errors everytime we submit remember!
+            emailError.textContent = ''
+            passwordError.textContent = ''
+
+            //Get the email and password from name field
+            const email = form.email.value;
+            const password = form.password.value;
+            //Log onto the developer tools console this information
+            //console.log(email, password);
+
+            //Display the user status
+
+            try {
+                const res = await fetch('/signup', {
+                        method: 'POST',
+                        //Can pass it as so as it has the same name as the value or use email: email, password: password
+                        body: JSON.stringify({ email, password, userStatus }),
+                        //Send it as json to the server and DB if succusful
+                        headers: { 'Content-Type': 'application/json' }
+                })
+
+                //Get the data from the response
+                const data = await res.json()
+                //Show data in the console (either user id or the errors)
+                console.log(data)
+
+                //Lets do something when there's an error if it exists
+                if (data.errors) {
+                    emailError.textContent = data.errors.email
+                    passwordError.textContent = data.errors.password
+
+                }
+
+                //If there was no problem signing up, then redirect to the home page
+                if (data.user) {
+                    location.assign('/')
+                }
+            }
+            catch (err) {
+                console.log(err)
+            }
+        }
+    
+       
+    )
+ </script>
+</html>

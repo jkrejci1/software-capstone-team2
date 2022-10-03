@@ -1,0 +1,23 @@
+<!--Initial Homepage HTML using ejs-->
+<!DOCTYPE html>
+<html lang='en'>
+ <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Capstone User Page</title>
+ </head>
+ <body>
+    <h1>Capstone User Page!</h1>
+        <!--Links to sign in log in or log out-->
+    <ul>
+      <!--Handled in the controller and routes-->
+      <li><a href="/logout">Log Out</a></li>
+      <li><a href="/">Home Page</a></li>
+    </ul>
+
+    <!--Greet the current user using embedded JS-->
+    <h2>Welcome, <%= user.email %></h2>
+    <!--Show the status of the current user whether they are a worker or a customer-->
+    <h2>Status: <%= user.userStatus %></h2>
+ </body>
+</html>

@@ -1,0 +1,82 @@
+<!--Initial Homepage HTML using ejs-->
+<!DOCTYPE html>
+<html lang='en'>
+ <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Capstone Login</title>
+ </head>
+ <body>
+    <h1>Capstone Login Page!</h1>
+
+    <!--Form for signing up-->
+    <form>
+        <h2>Log in</h2>
+        <!--Label information for entering email and possible error-->
+        <label for="email">Email</label>
+        <input type="text" name="email" required />
+        <div class="email error"></div>
+        <!--Label information for entering password and possible error-->
+        <label for="password">Password</label>
+        <input type="password" name="password" required />
+        <div class="password error"></div>
+        <button>Log in</button>
+    </form>
+ </body>
+
+ <!--JavaScript for handeling the login process-->
+ <script>
+    const form = document.querySelector('form');
+    const emailError = document.querySelector('.email.error')
+    const passwordError = document.querySelector('.password.error')
+
+
+    //Listen for when the submit button is pressed then fire function to take in event object
+    form.addEventListener('submit', async (e) => {    
+        e.preventDefault(); //Prevents refresh from happening
+    
+        //Reset the errors everytime we submit remember!
+        emailError.textContent = ''
+        passwordError.textContent = ''
+
+        //Get the email and password from name field
+        const email = form.email.value;
+        const password = form.password.value;
+        //Log onto the developer tools console this information
+        //console.log(email, password);
+
+        try {
+            const res = await fetch('/login', {
+
+                    //Corresponds with login post in authController
+                    method: 'POST',
+                    //Can pass it as so as it has the same name as the value or use email: email, password: password
+                    body: JSON.stringify({ email, password }),
+                    //Send it as json to the server and DB if succusful
+                    headers: { 'Content-Type': 'application/json' }
+            })
+
+            //Get the data from the response
+            const data = await res.json()
+            //Show data in the console (either user id or the errors)
+            console.log(data)
+
+            //Lets do something when there's an error if it exists
+            if (data.errors) {
+                emailError.textContent = data.errors.email
+                passwordError.textContent = data.errors.password
+
+            }
+
+            //If there was no problem signing up, then redirect to the home page
+            if (data.user) {
+                location.assign('/')
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    })
+ </script>
+ </body>
+</html>
