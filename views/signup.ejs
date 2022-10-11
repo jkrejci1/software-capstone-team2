@@ -22,7 +22,15 @@
         <label for="password">Password</label>
         <input type="password" name="password" required />
         <div class="password error"></div>
-        
+        <!--Label information for entering a firstname-->
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" required />
+        <div class="first name error"></div>
+        <!--Label information for entering a lastname-->
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" required />
+        <div class="last name error"></div>
+
         <!--Button to sign up-->
         <button>Sign up</button>
         <!--Button for a worker to click to sign up as a worker-->
@@ -45,6 +53,8 @@
     const form2 = document.querySelector('.form2')
     const emailError = document.querySelector('.email.error')
     const passwordError = document.querySelector('.password.error')
+    const fnameError = document.querySelector('.first.name.error')
+    const lnameError = document.querySelector('.last.name.error')
     const workPassError = document.querySelector('.workPassError')
 
     //Default permissions for user
@@ -53,8 +63,9 @@
     form2.addEventListener('submit', async (e) => {
         e.preventDefault(); //Prevents refresh from
 
-        console.log("BUTTON PRESS")
-        console.log("Hello there jack: ", e.submitter.className);
+        //TESTING 
+        //console.log("BUTTON PRESS")
+        //console.log("Hello there jack: ", e.submitter.className);
 
         //Attempt to fix
         //If the worker button was pressed then we should give the user a chance to prove that they're a worker
@@ -115,10 +126,20 @@
             //Reset the errors everytime we submit remember!
             emailError.textContent = ''
             passwordError.textContent = ''
+            fnameError.textContent = ''
+            lnameError.textContent = ''
 
             //Get the email and password from name field
             const email = form.email.value;
             const password = form.password.value;
+
+            //Now do the same thing above for the user's name CONTINUE HERE TO SELECT NEW FORM VALUES
+            const firstName = form.firstName.value
+            const lastName = form.lastName.value
+
+            //Test for first and last name text
+            console.log('Your name:', firstName, lastName)
+
             //Log onto the developer tools console this information
             //console.log(email, password);
 
@@ -128,7 +149,7 @@
                 const res = await fetch('/signup', {
                         method: 'POST',
                         //Can pass it as so as it has the same name as the value or use email: email, password: password
-                        body: JSON.stringify({ email, password, userStatus }),
+                        body: JSON.stringify({ email, password, firstName, lastName, userStatus }),
                         //Send it as json to the server and DB if succusful
                         headers: { 'Content-Type': 'application/json' }
                 })
@@ -142,6 +163,8 @@
                 if (data.errors) {
                     emailError.textContent = data.errors.email
                     passwordError.textContent = data.errors.password
+                    fnameError.textContent = data.errors.firstName
+                    lnameError.textContent = data.errors.lastName
 
                 }
 

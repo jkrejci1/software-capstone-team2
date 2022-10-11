@@ -27,6 +27,18 @@ const userSchema = new mongoose.Schema({
         minlength: [6, 'Minimum password length is 6 characters!']
     },
 
+    //Make it required for a user signing up to enter their first name
+    firstName: {
+        type: String,
+        required: [true, 'Please enter your first name']
+    },
+
+    //Make it required for a user signing up to enter their last name
+    lastName: {
+        type: String,
+        required: [true, 'Please enter your last name']
+    },
+
     //User status to allow certain permissions 
     userStatus: {
         type: String,

@@ -69,16 +69,20 @@ module.exports.signup_post = async (req, res) => {
     //MIGHT NEED TO GET PERMISSION INFORMATION ADDED TO THIS FOR WHEN THE USER SIGNS UP
 
     console.log("Request body:", req.body); //Shows the JSON req data in the console
-    const { email, password, userStatus } = req.body //Grabs the JSON objects one by one putting them into each variable
+    //VARIABLES HERE MUST MATCH VARIABLES PASSED FROM signup.ejs!!
+    const { email, password, firstName, lastName, userStatus } = req.body //Grabs the JSON objects one by one putting them into each variable
 
     console.log("Grabbed status: " + userStatus + " Grabbed email: " + email)
     //console.log(email, password); //Shows the same on console as first one above
+
+    //Check names in the body
+    console.log('Name in controller:', firstName, lastName)
     
     //Create a new user in the database with the user model
     try {
         //Create an instance of the user to save to DB
         //Must pass what matches the schema, so the email and password
-        const user = await User.create({ email, password, userStatus }) //Async, gives a promise; make sure the function is async then
+        const user = await User.create({ email, password, firstName, lastName, userStatus }) //Async, gives a promise; make sure the function is async then
 
         //Create a json web token to have the user be logged in for verification
         const token = createToken(user._id)
