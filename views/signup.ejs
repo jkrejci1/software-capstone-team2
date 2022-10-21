@@ -30,6 +30,10 @@
         <label for="lastName">Last Name</label>
         <input type="text" name="lastName" required />
         <div class="last name error"></div>
+        <!--Label information for entering your phone number-->
+        <label for="number">Phone Number</label>
+        <input type="text" name="number" required />
+        <div class="number error"></div>
 
         <!--Button to sign up-->
         <button>Sign up</button>
@@ -56,6 +60,7 @@
     const fnameError = document.querySelector('.first.name.error')
     const lnameError = document.querySelector('.last.name.error')
     const workPassError = document.querySelector('.workPassError')
+    const numberError = document.querySelector('.number.error')
 
     //Default permissions for user
     let userStatus = "customer"
@@ -128,14 +133,16 @@
             passwordError.textContent = ''
             fnameError.textContent = ''
             lnameError.textContent = ''
+            numberError.textContent = ''
 
             //Get the email and password from name field
             const email = form.email.value;
             const password = form.password.value;
 
-            //Now do the same thing above for the user's name CONTINUE HERE TO SELECT NEW FORM VALUES
+            //Now do the same thing above for the user's name and number
             const firstName = form.firstName.value
             const lastName = form.lastName.value
+            const number = form.number.value
 
             //Test for first and last name text
             console.log('Your name:', firstName, lastName)
@@ -149,7 +156,7 @@
                 const res = await fetch('/signup', {
                         method: 'POST',
                         //Can pass it as so as it has the same name as the value or use email: email, password: password
-                        body: JSON.stringify({ email, password, firstName, lastName, userStatus }),
+                        body: JSON.stringify({ email, password, firstName, lastName, number, userStatus }),
                         //Send it as json to the server and DB if succusful
                         headers: { 'Content-Type': 'application/json' }
                 })
@@ -165,7 +172,7 @@
                     passwordError.textContent = data.errors.password
                     fnameError.textContent = data.errors.firstName
                     lnameError.textContent = data.errors.lastName
-
+                    numberError.textContent = data.errors.number
                 }
 
                 //If there was no problem signing up, then redirect to the home page

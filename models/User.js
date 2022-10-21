@@ -39,6 +39,12 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please enter your last name']
     },
 
+    //Make it required for a user signing up to enter their number 
+    number: {
+        type: String,
+        required: [true, 'Please enter your phone number']
+    },
+
     //User status to allow certain permissions 
     userStatus: {
         type: String,
