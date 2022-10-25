@@ -25,6 +25,14 @@
 
          <!--Header for skills and area that includes all of them-->
          <h1>Skills</h1>
+
+         <!--WE WILL NEED A LIST OF SKILLS HERE FROM THE USERS SKILL ATTRIBUTE IN THE SCHEMA!!-->
+         <% for(var i=0; i<user.userSkills.length; i++) {%>
+            <ul>
+                <li id="userSkill"><%= user.userSkills[i] %></li>
+            </ul>
+        <% } %>
+
          <ul id="skillList">
 
          </ul>
@@ -55,6 +63,8 @@
 
       //Now add the skill that the user entered to the screen, NEED THE TEXT
       skillList.innerHTML += '<li>'+skill+'</li>'
+
+      //NEXT STEP: ADD CODE FOR SAVING AN ADDED SKILL TO THE userSkills ATTRIBUTE IN THE DATABASE FOR THE CURRENT USER!!
 
    })
  </script>
