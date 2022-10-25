@@ -17,6 +17,13 @@
 
     <!--if user.userStatus === 'worker' allow them to add skills to their profile-->
     <% if (user.userStatus === 'worker') { %>
+         <!--Label and text box for adding a skill-->
+         <label for="skillText">Add a Skill</label>
+         <input type="text" name="skillText" id="skillText" />
+         <!--Button to click to add a skill in the text box-->
+         <button id="addSkill">Add</button>
+
+         <!--Header for skills and area that includes all of them-->
          <h1>Skills</h1>
     <% } %>
 
@@ -25,5 +32,21 @@
  <!--JavaScript for the profile page-->
  <script>
 
+   //Let the skill variable initially be empty
+   var skill = ''
+   //Variable that represents the button to add a skill
+   let button = document.getElementById('addSkill')
+
+   //When the add skill button is clicked we need to add the skill to the screen and to the userSkills array
+   button.addEventListener('click', async (e) => {    
+      e.preventDefault(); //Prevents refresh from happening
+
+      //Get the entered skill
+      skill = document.getElementById("skillText").value 
+      //alert(skill) TEST TO SEE IF THE SKILL VARIABLE IS UPDATING WITHOUT REFRESHING SCREEN; WORKS!!
+
+      //Now add the skill that the user entered to the screen, NEED THE TEXT
+      
+   })
  </script>
 </html>
