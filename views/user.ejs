@@ -25,6 +25,9 @@
 
          <!--Header for skills and area that includes all of them-->
          <h1>Skills</h1>
+         <ul id="skillList">
+
+         </ul>
     <% } %>
 
  </body>
@@ -34,6 +37,10 @@
 
    //Let the skill variable initially be empty
    var skill = ''
+
+   //Variable to represent the list of skills in html
+   var skillList = document.getElementById('skillList')
+
    //Variable that represents the button to add a skill
    let button = document.getElementById('addSkill')
 
@@ -43,10 +50,12 @@
 
       //Get the entered skill
       skill = document.getElementById("skillText").value 
+      skill += "\n"
       //alert(skill) TEST TO SEE IF THE SKILL VARIABLE IS UPDATING WITHOUT REFRESHING SCREEN; WORKS!!
 
       //Now add the skill that the user entered to the screen, NEED THE TEXT
-      
+      skillList.innerHTML += '<li>'+skill+'</li>'
+
    })
  </script>
 </html>
