@@ -16,5 +16,14 @@
     <h2>Status: <%= user.userStatus %></h2>
 
     <!--if user.userStatus === 'worker' allow them to add skills to their profile-->
+    <% if (user.userStatus === 'worker') { %>
+         <h1>Skills</h1>
+    <% } %>
+
  </body>
+
+ <!--JavaScript for the profile page-->
+ <script>
+
+ </script>
 </html>
