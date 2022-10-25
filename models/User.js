@@ -52,6 +52,11 @@ const userSchema = new mongoose.Schema({
         lowercase: true
     },
     
+    //User skills that can only have anything added when a user is a worker (it's an array)
+    userSkills: {
+        type: [String],
+        required: false
+    }
 });
 
 //Mongoose hooks pre/post (use the pre hook to hash a password before it's saved in DB)
