@@ -4,6 +4,9 @@ const User = require('../models/User')
 //Require json web tokens for handeling the user when logged in
 const jwt = require('jsonwebtoken')
 
+//Required for handeling parsing urls
+var url = require('url');
+
 //Function to handle errors
 const handleErrors = (err) => {
     //The err.message will be the custom error messages we made in the User schema!
@@ -130,4 +133,39 @@ module.exports.logout_get = (req, res) => {
 
     //Now redirect them to the home page when logged out
     res.redirect('/')
+}
+
+//Function for saving skills 
+module.exports.save_skill = async (request, response) => {
+    console.log('Calling "/save-skill" on the Node.js server.')
+	var inputs = url.parse(request.url, true).query
+	console.log("The inputs string:", inputs.skill)
+	const skill = inputs.skill
+	const userEmail = inputs.email
+
+	console.log("The skill is on the server side and it's:", skill)
+	console.log("The email is on the server side and it's:", userEmail)
+
+    await User.saveSkill(skill, userEmail)
+	response.send("Skill Saved!")
+
+}
+
+//Function to see if password entered was correct
+module.exports.fetch_password = async (request, response) => {
+    console.log("In the server side to fetch the password")
+    //Gets what was sent to the server side
+    var input = url.parse(request.url, true).query
+    //Variable used for sending a status back to the user if the password entered was right or wrong
+    var correctPassword = "False"
+
+    console.log("The input is", input.password)
+    const inputPassword = input.password
+
+    //If the password is correct set correctPassword to true
+    if (inputPassword = "12345") {
+        correctPassword = "True"
+    }
+
+    response.send(correctPassword)
 }

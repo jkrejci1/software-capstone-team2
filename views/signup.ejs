@@ -34,11 +34,9 @@
         <label for="number">Phone Number</label>
         <input type="text" name="number" required />
         <div class="number error"></div>
-
         <!--Button to sign up-->
         <button>Sign up</button>
-        <!--Button for a worker to click to sign up as a worker-->
-        <!--<button class="worker">I'm a Worker</button>-->
+
     </form>
     <!--Button for a worker to click to sign up as a worker-->
     <form class="form2">
@@ -65,14 +63,10 @@
     //Default permissions for user
     let userStatus = "customer"
 
+    //Button used to try and sign up as a worker
     form2.addEventListener('submit', async (e) => {
         e.preventDefault(); //Prevents refresh from
 
-        //TESTING 
-        //console.log("BUTTON PRESS")
-        //console.log("Hello there jack: ", e.submitter.className);
-
-        //Attempt to fix
         //If the worker button was pressed then we should give the user a chance to prove that they're a worker
         if (e.submitter.className == "worker") {
             console.log("Worker button pressed")
@@ -93,9 +87,13 @@
             //Get the password entered by the user
             const workPass = form2.workPassword.value
 
+            //Get the password from the server side
+            const password = await fetch('/fetch-password?password='+encodeURIComponent(workPass))
+            const responseText = await password.text()
+
             //If the workpassword is equal to the right code then give them worker permissions when sigining in
-            //INITIAL WORK PASSWORD IS HERE!!
-            if (workPass == "12345") {
+            //INITIAL WORK PASSWORD IS HERE!! CHANGE THIS!!
+            if (responseText == "True") {
                 //Change the userStatus to a worker
                 userStatus = "worker"
                 console.log("User Status:", userStatus)

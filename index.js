@@ -48,31 +48,14 @@ app.get('/user', requireAuth, (req, res) => res.render('user'))
 //Use the routes for the authentication pages
 app.use(authRoutes);
 
+//Function to send the password to sign up as a worker to the front end
+/** 
+app.get('/fetch-password', async(request, response) => {
+	console.log("In the server side to fetch the password")
+	response.send(bcrypt("12345"))
 
-//Function to save a new skill given by the user to the database 
-app.get('/save-skill', async (request, response) => {
-	console.log('Calling "/save-skill" on the Node.js server.')
-	var inputs = url.parse(request.url,true).query
-	console.log("The inputs string:", inputs.skill)
-	const skill = inputs.skill
-	const userEmail = inputs.email
-
-	console.log("The skill is on the server side and it's:", skill)
-	console.log("The email is on the server side and it's:", userEmail)
-
-	//Save the password to proper user in MongoDB WORKS!!
-	await userSchema.findOneAndUpdate({
-		email: userEmail.trim()
-	}, {
-		$push: { //Use $push MongoDB function to push the password to the array
-			userSkills: skill
-		}
-	}
-)
-
-	response.send("Skill Saved!")
 })
-
+*/
 
 // Custom 404 page.
 app.use((request, response) => {

@@ -102,6 +102,17 @@ userSchema.statics.login = async function(email, password) {
     throw Error('incorrect email') //If it doesn't exist throw an error!
 }
 
+//Save Skill method for saving a skill a user enters to the database
+userSchema.statics.saveSkill = async function(skill, userEmail) {
+    await this.findOneAndUpdate ({
+        email: userEmail.trim()
+	}, {
+		$push: { //Use $push MongoDB function to push the password to the array
+			userSkills: skill
+		}
+	}) 
+}
+
 //Create a model based on this schema above
 const User = mongoose.model('user', userSchema); //Must be singular of whatever we called our database for this, we called it 'users' (mongoose ploralizes it!)
 
