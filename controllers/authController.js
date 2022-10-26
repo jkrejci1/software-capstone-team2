@@ -52,7 +52,7 @@ const handleErrors = (err) => {
 
 //Function for json web tokens (use id when DB json format is created as each id is unique)
 //Use maxAge for setting the age of a token
-const maxAge = 3 * 24 * 60 * 60 //Value for 3 days in seconds
+const maxAge = 12 * 60 * 60 //Value for 12 hours in seconds
 const createToken = (id) => {
     return jwt.sign({ id }, 'JK13@SKlmnOq0909Wh', {
         expiresIn: maxAge
