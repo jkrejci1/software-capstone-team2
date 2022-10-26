@@ -57,7 +57,7 @@ app.get('/save-skill', async (request, response) => {
 	const skill = inputs.skill
 	const userEmail = inputs.email
 
-	console.log("The password is on the server side and it's:", skill)
+	console.log("The skill is on the server side and it's:", skill)
 	console.log("The email is on the server side and it's:", userEmail)
 
 	//Save the password to proper user in MongoDB WORKS!!
