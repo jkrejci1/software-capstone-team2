@@ -28,11 +28,6 @@ app.set('view engine', 'ejs')
 //Connect to the MongoDB database
 const dbURI = 'mongodb+srv://Jack:12Stone25@cluster0.c8vrqj7.mongodb.net/node-auth?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-/*
-
-	.then((result) => app.listen(3000))
-	.catch((err) => console.log(err))
-*/
 
 //Use checkUser to find if we have a user that is already logged in to give information in views
 app.get('*', checkUser) //Apply this to every route
@@ -47,15 +42,6 @@ app.get('/user', requireAuth, (req, res) => res.render('user'))
 
 //Use the routes for the authentication pages
 app.use(authRoutes);
-
-//Function to send the password to sign up as a worker to the front end
-/** 
-app.get('/fetch-password', async(request, response) => {
-	console.log("In the server side to fetch the password")
-	response.send(bcrypt("12345"))
-
-})
-*/
 
 // Custom 404 page.
 app.use((request, response) => {
