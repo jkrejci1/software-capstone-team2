@@ -38,6 +38,9 @@
          </ul>
     <% } %>
 
+   <!--Hidden element to be able to access the current user email outside of the html-->
+   <p id="currentUser" hidden><%= user.email %></p>
+
  </body>
 
  <!--JavaScript for the profile page-->
@@ -54,6 +57,9 @@
 
    //When the add skill button is clicked we need to add the skill to the screen and to the userSkills array
    button.addEventListener('click', async (e) => {    
+
+      var userEmail = document.getElementById("currentUser").innerText
+
       e.preventDefault(); //Prevents refresh from happening
 
       //Get the entered skill
@@ -64,8 +70,12 @@
       //Now add the skill that the user entered to the screen, NEED THE TEXT
       skillList.innerHTML += '<li>'+skill+'</li>'
 
+      
       //NEXT STEP: ADD CODE FOR SAVING AN ADDED SKILL TO THE userSkills ATTRIBUTE IN THE DATABASE FOR THE CURRENT USER!!
-
+      //Need to use encodeURIComponent(password) in order to send special chracters over to the server side
+      const saving = await fetch('/save-skill?skill='+encodeURIComponent(skill)+'&email='+encodeURIComponent(userEmail))
+      const responseText = await saving.text()
+      
    })
  </script>
 </html>

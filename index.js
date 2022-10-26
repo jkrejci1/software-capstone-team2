@@ -5,6 +5,8 @@ const app = express();
 const path = require('path');
 var url = require('url');
 const port = process.env.PORT || 8080;
+//Be able to access the Schema for saving skills
+const userSchema = require('./models/User');
 
 //Import our routes from the routes folder authRoutes
 const authRoutes = require('./routes/authRoutes');
@@ -45,6 +47,31 @@ app.get('/user', requireAuth, (req, res) => res.render('user'))
 
 //Use the routes for the authentication pages
 app.use(authRoutes);
+
+
+//Function to save a new skill given by the user to the database 
+app.get('/save-skill', async (request, response) => {
+	console.log('Calling "/save-skill" on the Node.js server.')
+	var inputs = url.parse(request.url,true).query
+	console.log("The inputs string:", inputs.skill)
+	const skill = inputs.skill
+	const userEmail = inputs.email
+
+	console.log("The password is on the server side and it's:", skill)
+	console.log("The email is on the server side and it's:", userEmail)
+
+	//Save the password to proper user in MongoDB WORKS!!
+	await userSchema.findOneAndUpdate({
+		email: userEmail.trim()
+	}, {
+		$push: { //Use $push MongoDB function to push the password to the array
+			userSkills: skill
+		}
+	}
+)
+
+	response.send("Skill Saved!")
+})
 
 
 // Custom 404 page.
