@@ -163,7 +163,7 @@ module.exports.fetch_password = async (request, response) => {
     const inputPassword = input.password
 
     //If the password is correct set correctPassword to true
-    if (inputPassword = "12345") {
+    if (inputPassword == "12345") {
         correctPassword = "True"
     }
 
