@@ -26,16 +26,16 @@
          <!--Header for skills and area that includes all of them-->
          <h1>Skills</h1>
 
-         <!--WE WILL NEED A LIST OF SKILLS HERE FROM THE USERS SKILL ATTRIBUTE IN THE SCHEMA!!-->
-         <% for(var i=0; i<user.userSkills.length; i++) {%>
-            <ul>
-                <li id="userSkill"><%= user.userSkills[i] %></li>
-            </ul>
-        <% } %>
-
+         <!--List of skills the user will give and have saved to their profile-->
          <ul id="skillList">
-
+         <!--If the skill list in the database isn't empty, list those skills in it first-->
+         <% if (user.userSkills.length != 0) { %>
+               <% for(var i=0; i<user.userSkills.length; i++) {%>
+                  <li id="userSkill"><%= user.userSkills[i] %></li>
+               <% } %>
+         <% } %>
          </ul>
+
     <% } %>
 
    <!--Hidden element to be able to access the current user email outside of the html-->
@@ -64,7 +64,7 @@
 
       //Get the entered skill
       skill = document.getElementById("skillText").value 
-      skill += "\n"
+      //skill += "\n"
       //alert(skill) TEST TO SEE IF THE SKILL VARIABLE IS UPDATING WITHOUT REFRESHING SCREEN; WORKS!!
 
       //Now add the skill that the user entered to the screen, NEED THE TEXT
