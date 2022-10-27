@@ -2,11 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const path = require('path');
-var url = require('url');
 const port = process.env.PORT || 8080;
-//Be able to access the Schema for saving skills
-const userSchema = require('./models/User');
 
 //Import our routes from the routes folder authRoutes
 const authRoutes = require('./routes/authRoutes');
@@ -32,15 +28,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 //Use checkUser to find if we have a user that is already logged in to give information in views
 app.get('*', checkUser) //Apply this to every route
 
-//Show the homepage with just a / route
-app.get('/', (request, response) => {
-	response.render('index.ejs')
-})
+//Required authentication for the user profile route
+app.get('/user', requireAuth)
 
-//Show user page if the user is logged in
-app.get('/user', requireAuth, (req, res) => res.render('user'))
-
-//Use the routes for the authentication pages
+//Use the routes file for routing everything outside of making requirements
 app.use(authRoutes);
 
 // Custom 404 page.

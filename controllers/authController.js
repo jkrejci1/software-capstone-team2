@@ -59,6 +59,16 @@ const createToken = (id) => {
     }) //Pass the payload and secret into sign SECRET
 }
 
+//Function for getting the home file
+module.exports.home_get = (req, res) => {
+    res.render('index')
+}
+
+//Function for getting the user file
+module.exports.user_get = (req, res) => {
+    res.render('user')
+}
+
 //Functions to handle the get and post requests from the 'routes' folder
 module.exports.signup_get = (req, res) => {
     res.render('signup');
