@@ -44,7 +44,7 @@ const checkUser = (req, res, next) => {
             } else {
                 console.log(decodedToken) //Remember our payload in the decodedToken is the ID of the user we can use this
                 
-                //Find user in database with that ID and inject them into a view
+                //Find user in database with that ID and inject them into a view (built in function)
                 let user = await User.findById(decodedToken.id)
 
                 //Use locals on response to make the user accessible by using whats after locals

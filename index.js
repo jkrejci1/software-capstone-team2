@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 8080;
 
-//Import our routes from the routes folder authRoutes
+//Import our routes from the routes folder authRoutes to tell server to use those routes later
 const authRoutes = require('./routes/authRoutes');
 
 //Import cookie parser package to work with cookies

@@ -18,6 +18,8 @@ router.post('/signup', authController.signup_post);
 router.get('/login', authController.login_get);
 router.post('/login', authController.login_post);
 router.get('/logout', authController.logout_get);
+
+//Server side functions
 //Function for saving skill
 router.get('/save-skill', authController.save_skill);
 //Function for checking if password to sign up as a worker is correct
