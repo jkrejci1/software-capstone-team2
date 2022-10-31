@@ -33,6 +33,7 @@ const handleErrors = (err) => {
             //console.log(properties)
 
             //The path should either be an email or password
+            //Sets the error for these to the error message itself
             errors[properties.path] = properties.message //The properties.path will be either email or password so it will equal the value in our errors object and set them equal to the message for the corresponding error
         })
     }
@@ -102,7 +103,7 @@ module.exports.signup_post = async (req, res) => {
         //Place inside a cookie and send in res
         res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
 
-        //Send response when above is done and it will be sent into our DB
+        //Send response when above is done and it will be sent into our DB indicates new resource created
         res.status(201).json({ user: user._id }) //Send back as json as response to front end
     }
     catch(err) {
