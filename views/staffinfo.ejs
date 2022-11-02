@@ -1,0 +1,36 @@
+<!--Staff Info HTML page using ejs-->
+<!DOCTYPE html>
+<html lang='en'>
+ <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="styles.css">-->
+    <title>Staff Information</title>
+ </head>
+ <body>
+   <!--Link the header to this page-->
+   <%- include('partials/header'); -%>
+
+    <h1>Staff Information</h1>
+
+    <!--Go through our database, and list out all the workers and their skills-->
+    <%userList.forEach(user => {%>
+        <!--Display a worker's first and last name-->
+        <% if (user.userStatus === 'worker') { %>
+            <h2><%= user.firstName %> <%= user.lastName %> </h2>
+            <ul>
+                <!--Go through the worker's skills list and display all their skills to the page-->
+                <% for(var i=0; i<user.userSkills.length; i++) {%>
+                    <li id="userSkill"><%= user.userSkills[i] %></li>
+                 <% } %>
+            </ul>
+        <% } %>
+    <%})%>
+
+ </body>
+ <script>
+
+    //Try and get the staff information from the mongoDB database
+    
+
+ </script>
+</html>

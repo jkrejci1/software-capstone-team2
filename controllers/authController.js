@@ -67,7 +67,19 @@ module.exports.home_get = (req, res) => {
 
 //Function for getting the user file
 module.exports.user_get = (req, res) => {
-    res.render('user')
+    res.render('user',
+    {})
+}
+
+//Function for getting the staff information file
+module.exports.staff_get = (req, res) => {
+
+    //Give the current model to the staff info page as well so we can take data from inside the entire database
+    User.find({}, function(err, users) {
+        res.render('staffinfo', {
+            userList: users
+        })
+    })
 }
 
 //Functions to handle the get and post requests from the 'routes' folder
@@ -80,7 +92,6 @@ module.exports.login_get = (req, res) => {
 }
 
 module.exports.signup_post = async (req, res) => {
-    //MIGHT NEED TO GET PERMISSION INFORMATION ADDED TO THIS FOR WHEN THE USER SIGNS UP
 
     console.log("Request body:", req.body); //Shows the JSON req data in the console
     //VARIABLES HERE MUST MATCH VARIABLES PASSED FROM signup.ejs!!
@@ -180,3 +191,4 @@ module.exports.fetch_password = async (request, response) => {
 
     response.send(correctPassword)
 }
+
