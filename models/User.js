@@ -116,7 +116,5 @@ userSchema.statics.saveSkill = async function(skill, userEmail) {
 //Create a model based on this schema above
 const User = mongoose.model('user', userSchema); //Must be singular of whatever we called our database for this, we called it 'users' (mongoose ploralizes it!)
 
-//Displaying all information from database
-
 //Export model to be used somewhere else like in the controllers to interact with the database
 module.exports = User; //Allows us to require this somewhere else, so we can use it outside of this file
