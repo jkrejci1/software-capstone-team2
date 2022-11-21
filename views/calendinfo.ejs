@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang='en'>
  <head>
-
+   <!--Link the header to this page-->
+   <%- include('partials/header'); -%>
    <link rel="stylesheet" href="cal.css">
    <div id="calendar"></div>
    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-   <script src="moment.js"></script><script>    
-    moment().format();</script>
   
-  <script type = "text/javascript" src="cal.js"></script>
-   
 
 
     <title>Calendar Information</title>
@@ -20,10 +15,15 @@
 
 
 <body>
-
+  
 
  </body>
+ 
+    <script src="moment.js"></script><script>    
+  moment().format();</script>
 
+    <script type = "text/javascript" src="cal.js"></script>
+ 
 
 </html>
 
