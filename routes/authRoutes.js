@@ -14,7 +14,9 @@ router.get('/', authController.home_get);
 router.get('/user', authController.user_get);
 //Get staff info page
 router.get('/staff', authController.staff_get);
-//Use auth controller for the {} functions to keep neat
+//Get the calender page
+router.get('/calendar', authController.calendar_get);
+//Use auth controller for the {} functions to keep neet
 router.get('/signup', authController.signup_get);
 router.post('/signup', authController.signup_post);
 router.get('/login', authController.login_get);

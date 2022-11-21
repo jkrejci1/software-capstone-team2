@@ -71,6 +71,11 @@ module.exports.user_get = (req, res) => {
     {})
 }
 
+//Function for getting the calendar file
+module.exports.calendar_get = (req, res) => {
+    res.render('calendinfo')
+}
+
 //Function for getting the staff information file
 module.exports.staff_get = (req, res) => {
 
