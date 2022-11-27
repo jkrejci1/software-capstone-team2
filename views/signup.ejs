@@ -1,38 +1,213 @@
 <!--Initial Homepage HTML using ejs-->
 <!DOCTYPE html>
 <html lang='en'>
- <head>
+
+<head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Capstone Signup</title>
- </head>
- <body>
+</head>
+
+<body style="align-self: center;">
     <h1>Capstone Signup Page!</h1>
 
     <!--Form for signing up-->
     <form>
+        <Table>
+            <th id="normalHeader" style="display:header; font-size: xx-large; text-align: center;" colspan="2">Sign up
+            </th>
+            <th id="workerHeader" style="display:none; font-size: xx-large; text-align: center;" colspan="2">Volunteer
+                Sign up</th>
+            <tbody>
+                <!--Updated format for our signup page-->
+                <tr>
+                    <td style="padding: 5px;">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" style="width: 200px;" required />
+                    </td>
+                    <td style="padding: 3px;">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" style="width: 200px;" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" style="width: 200px;" required />
+                    </td>
+                    <td style="padding: 5px;">
+                        <label for="number">Phone Number</label>
+                        <input type="tel" name="number" style="width: 200px;" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding: 5px;">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" style="width: 200px;" required />
+                    </td>
+                    <td style="padding: 5px;">
+                        <label for="_password">Confirm Password</label>
+                        <input type="password" name="_password" style="width: 200px;" required />
+                        <div class="_password error"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="font-size: large; text-align: center;">
+                        <label for="AboutYourself">About Yourself</label>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea id="AboutVolunteer" name="_AboutYourself" rows="10" cols="100"
+                            placeholder="Who are you?" required></textarea>
+                    </td>
+                </tr>
+                <!--This is a place holder for the Tag system, don't worry about it for now-->
+                <tr>
+                    <td>
+                        <select taggedInterests multiple>
+                            <option>option 1</option>
+                            <option>option 2</option>
+                            <option>option 3</option>
+                            <option>option 4</option>
+                        </select> 
+                    </td>
+                </tr>
+            </tbody>
+        </Table>
+        <!-- This is a weekely time card table for users to input the times they are available-->
+        <table style="border: solid; border-color:black" style="text-align: center;">
+            <th>Available Times to Volunteer</th>
+            <tbody>
+                <tr>
+                    <td colspan="2">Sunday 
+                        <input type="checkbox" name="SundayCheck" unchecked/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="suFrom" >From</label>
+                        <input type="time" name="suFrom"/>
+                    </td>
+                    <td>
+                        <label for="suTo" >To: </label>
+                        <input type="time" name="suTo"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Monday 
+                        <input type="checkbox" name="MondayCheck" unchecked/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="monFrom" >From: </label>
+                        <input type="time" name="monFrom"/>
+                    </td>
+                    <td>
+                        <label for="monTo" >To: </label>
+                        <input type="time" name="monTo"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Tuesday 
+                        <input type="checkbox" name="TuesdayCheck" unchecked/>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="tueFrom" >From: </label>
+                        <input type="time" name="tueFrom"/>
+                    </td>
+                    <td>
+                        <label for="tueTo" >To: </label>
+                        <input type="time" name="tueTo"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Wednesday 
+                        <input type="checkbox" name="WednesdayCheck" unchecked/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="wedFrom" >From: </label>
+                        <input type="time" name="wedFrom"/>
+                    </td>
+                    <td>
+                        <label for="wedTo" >To: </label>
+                        <input type="time" name="wedTo"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Thursday 
+                        <input type="checkbox" name="ThursdayCheck"/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="thuFrom" >From: </label>
+                        <input type="time" name="thuFrom"/>
+                    </td>
+                    <td>
+                        <label for="thuTo" >To: </label>
+                        <input type="time" name="thuTo"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Friday 
+                        <input type="checkbox" name="FridayCheck"/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="friFrom" >From: </label>
+                        <input type="time" name="friFrom"/>
+                    </td>
+                    <td>
+                        <label for="friTo" >To: </label>
+                        <input type="time" name="friTo"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Saturday 
+                        <input type="checkbox" name="SaturdayCheck"/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        <label for="satFrom" >From: </label>
+                        <input type="time" name="satFrom"/>
+                    </td>
+                    <td>
+                        <label for="satTo" >To: </label>
+                        <input type="time" name="satTo"/>
+                    </td>
+                </tr>
+                    
+            </tbody>
+        </table>
+
+
         <h2>Sign up</h2>
         <!--Hidden when the user isn't a verified worker but pops up to let you know you're signing in as one-->
         <h3 id="workerHeader" style="display:none">Signing up as worker</h3>
         <!--Label information for entering email and possible error-->
-        <label for="email">Email</label>
-        <input type="text" name="email" required />
         <div class="email error"></div>
         <!--Label information for entering password and possible error-->
-        <label for="password">Password</label>
-        <input type="password" name="password" required />
         <div class="password error"></div>
         <!--Label information for entering a firstname-->
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" required />
         <div class="first name error"></div>
         <!--Label information for entering a lastname-->
-        <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" required />
         <div class="last name error"></div>
         <!--Label information for entering your phone number-->
-        <label for="number">Phone Number</label>
-        <input type="text" name="number" required />
         <div class="number error"></div>
         <!--Button to sign up-->
         <button>Sign up</button>
@@ -42,15 +217,15 @@
     <form class="form2">
         <!--Hidden label that will pop up if the user attempts to sign in as a worker-->
         <label id="workPassLabel" for="workPassword" style="display:none">Company Code</label>
-        <input type="password" name="workPassword" style="display:none"/>
+        <input type="password" name="workPassword" style="display:none" />
         <div class="workPassError"></div>
         <button class="worker">I'm a Worker</button>
     </form>
 
- </body>
+</body>
 
- <!--JavaScript for handeling the sign up process-->
- <script>
+<!--JavaScript for handeling the sign up process-->
+<script>
     const form = document.querySelector('form');
     const form2 = document.querySelector('.form2')
     const emailError = document.querySelector('.email.error')
@@ -59,6 +234,7 @@
     const lnameError = document.querySelector('.last.name.error')
     const workPassError = document.querySelector('.workPassError')
     const numberError = document.querySelector('.number.error')
+    const _passwordError = document.querySelector('._password.error')
 
     //Default permissions for user
     let userStatus = "customer"
@@ -79,8 +255,8 @@
             e.submitter.textContent = "Submit Code"
             e.submitter.className = "submitCode" //Class name of the button changes to submitCode
 
-        //Now if the submitCode button is pressed, check if the code entered is correct
-        } else if(e.submitter.className == "submitCode") {
+            //Now if the submitCode button is pressed, check if the code entered is correct
+        } else if (e.submitter.className == "submitCode") {
             console.log("You hit the submit code button!")
             workPassError.textContent = '' //Resets the errors for work password
 
@@ -88,7 +264,7 @@
             const workPass = form2.workPassword.value
 
             //Get the password from the server side
-            const password = await fetch('/fetch-password?password='+encodeURIComponent(workPass))
+            const password = await fetch('/fetch-password?password=' + encodeURIComponent(workPass))
             const responseText = await password.text()
 
             //If the workpassword is equal to the right code then give them worker permissions when sigining in
@@ -106,8 +282,23 @@
 
                 //Display the worker header to know we're signing up as one
                 document.getElementById('workerHeader').style.display = "block"
+                document.getElementById('normalHeader').style.display = "none"
 
-            //Show an error to the user
+                // this is for testing stuff MPK
+                if (form.SundayCheck == true){
+                    const g = "true"
+                }else{
+                    const g = "false"
+                }
+                const weeklyAvailability = new Array(form.SundayCheck.checked, form.suFrom.value, form.suTo.value, 
+                form.MondayCheck.checked, form.monFrom.value, form.monTo.value, form.TuesdayCheck.checked, form.tueFrom.value, 
+                form.tueTo.value, form.WednesdayCheck.checked, form.wedFrom.value, form.wedTo.value, form.ThursdayCheck.checked, 
+                form.thuFrom.value, form.thuTo.value, form.FridayCheck.checked, form.friFrom.value, form.friTo.value, 
+                form.SaturdayCheck.checked, form.satFrom.value, form.satTo.value); 
+                
+                console.log(weeklyAvailability);
+
+                //Show an error to the user
             } else {
                 workPassError.textContent = "Incorrect Code!"
             }
@@ -125,65 +316,82 @@
         //e.submitter.className will give you the class of the button pushed so you can tell which one is pushed
         console.log("Hello there jack: ", e.submitter.className);
 
-       
-            //Reset the errors everytime we submit remember!
-            emailError.textContent = ''
-            passwordError.textContent = ''
-            fnameError.textContent = ''
-            lnameError.textContent = ''
-            numberError.textContent = ''
 
-            //Get the email and password from name field
-            const email = form.email.value;
-            const password = form.password.value;
+        //Reset the errors everytime we submit remember!
+        emailError.textContent = ''
+        passwordError.textContent = ''
+        fnameError.textContent = ''
+        lnameError.textContent = ''
+        numberError.textContent = ''
+        _passwordError.textContent = ''
 
-            //Now do the same thing above for the user's name and number
-            const firstName = form.firstName.value
-            const lastName = form.lastName.value
-            const number = form.number.value
+        //Get the email and password from name field
+        const email = form.email.value;
+        const password = form.password.value;
 
-            //Test for first and last name text
-            console.log('Your name:', firstName, lastName)
+        //Now do the same thing above for the user's name and number
+        const firstName = form.firstName.value
+        const lastName = form.lastName.value
+        const number = form.number.value
 
-            //Log onto the developer tools console this information
-            //console.log(email, password);
+        //Newer values added that are not implemented into the Database yet -MPK
+        const _password = form._password.value
+        const _AboutYourself = form._AboutYourself.value
+        const weeklyAvailability = new Array(form.SundayCheck.checked, form.suFrom.value, form.suTo.value, 
+                form.MondayCheck.checked, form.monFrom.value, form.monTo.value, form.TuesdayCheck.checked, form.tueFrom.value, 
+                form.tueTo.value, form.WednesdayCheck.checked, form.wedFrom.value, form.wedTo.value, form.ThursdayCheck.checked, 
+                form.thuFrom.value, form.thuTo.value, form.FridayCheck.checked, form.friFrom.value, form.friTo.value, 
+                form.SaturdayCheck.checked, form.satFrom.value, form.satTo.value); 
+        
+        console.log(weeklyAvailability);
 
-            //Display the user status
+        //Test for first and last name text
+        console.log('Your name:', firstName, lastName)
 
-            try {
-                const res = await fetch('/signup', {
-                        method: 'POST',
-                        //Can pass it as so as it has the same name as the value or use email: email, password: password
-                        body: JSON.stringify({ email, password, firstName, lastName, number, userStatus }),
-                        //Send it as json to the server and DB if succusful
-                        headers: { 'Content-Type': 'application/json' }
-                })
+        //Log onto the developer tools console this information
+        //console.log(email, password);
 
-                //Get the data from the response
-                const data = await res.json()
-                //Show data in the console (either user id or the errors)
-                console.log(data)
+        //Display the user status
 
-                //Lets do something when there's an error if it exists
-                if (data.errors) {
-                    emailError.textContent = data.errors.email
-                    passwordError.textContent = data.errors.password
-                    fnameError.textContent = data.errors.firstName
-                    lnameError.textContent = data.errors.lastName
-                    numberError.textContent = data.errors.number
-                }
+        try {
+            const res = await fetch('/signup', {
+                method: 'POST',
+                //Can pass it as so as it has the same name as the value or use email: email, password: password
+                body: JSON.stringify({ email, password, firstName, lastName, number, userStatus}),
+                //Send it as json to the server and DB if succusful
+                headers: { 'Content-Type': 'application/json' }
+            })
 
-                //If there was no problem signing up, then redirect to the home page
-                if (data.user) {
-                    location.assign('/')
-                }
+            //Get the data from the response
+            const data = await res.json()
+            //Show data in the console (either user id or the errors)
+            console.log(data)
+
+            //Lets do something when there's an error if it exists
+            if (data.errors) {
+                emailError.textContent = data.errors.email
+                passwordError.textContent = data.errors.password
+                fnameError.textContent = data.errors.firstName
+                lnameError.textContent = data.errors.lastName
+                numberError.textContent = data.errors.number
             }
-            catch (err) {
-                console.log(err)
+            if (password != _password) {
+                console.log(Stringify({SundayCheck, suFrom, suTo}))
+                _passwordError.textContent = "Passwords do not match!"
+            }
+
+            //If there was no problem signing up, then redirect to the home page
+            if (data.user) {
+                location.assign('/')
             }
         }
-    
-       
+        catch (err) {
+            console.log(err)
+        }
+    }
+
+
     )
- </script>
+</script>
+
 </html>
