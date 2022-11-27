@@ -71,6 +71,11 @@ module.exports.user_get = (req, res) => {
     {})
 }
 
+//Function for getting the calendar file
+module.exports.calendar_get = (req, res) => {
+    res.render('calendinfo')
+}
+
 //Function for getting the staff information file
 module.exports.staff_get = (req, res) => {
 
@@ -93,7 +98,7 @@ module.exports.login_get = (req, res) => {
 
 module.exports.signup_post = async (req, res) => {
 
-    console.log("Request body:", req.body); //Shows the JSON req data in the console
+    //console.log("Request body:", req.body); //Shows the JSON req data in the console
     //VARIABLES HERE MUST MATCH VARIABLES PASSED FROM signup.ejs!!
     const { email, password, firstName, lastName, number, userStatus} = req.body //Grabs the JSON objects one by one putting them into each variable
 
@@ -173,6 +178,8 @@ module.exports.save_skill = async (request, response) => {
 
 }
 
+//INSERT CODE TO SAVE ABOUT ME INFORMATION HERE
+
 //Function to see if password entered was correct
 module.exports.fetch_password = async (request, response) => {
     console.log("In the server side to fetch the password")
@@ -181,7 +188,7 @@ module.exports.fetch_password = async (request, response) => {
     //Variable used for sending a status back to the user if the password entered was right or wrong
     var correctPassword = "False"
 
-    console.log("The input is", input.password)
+    //console.log("The input is", input.password) shows input of passcode given to compare to companies
     const inputPassword = input.password
 
     //If the password is correct set correctPassword to true

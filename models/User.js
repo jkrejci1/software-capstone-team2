@@ -56,6 +56,12 @@ const userSchema = new mongoose.Schema({
     userSkills: {
         type: [String],
         required: false
+    },
+
+    //User about me information that can only be added when user is a worker (aka volunteer)
+    userAbout: {
+        type: [String],
+        required: false
     }
 });
 
