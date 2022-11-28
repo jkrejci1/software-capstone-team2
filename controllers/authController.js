@@ -100,7 +100,7 @@ module.exports.signup_post = async (req, res) => {
 
     //console.log("Request body:", req.body); //Shows the JSON req data in the console
     //VARIABLES HERE MUST MATCH VARIABLES PASSED FROM signup.ejs!!
-    const { email, password, firstName, lastName, number, userStatus} = req.body //Grabs the JSON objects one by one putting them into each variable
+    const { email, password, firstName, lastName, number, userStatus } = req.body //Grabs the JSON objects one by one putting them into each variable
 
     console.log("Grabbed status: " + userStatus + " Grabbed email: " + email)
     //console.log(email, password); //Shows the same on console as first one above
