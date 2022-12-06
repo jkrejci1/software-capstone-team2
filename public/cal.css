@@ -4,7 +4,6 @@
   }
 
 body {
- overflow: hidden;
  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
  font-weight: 100;
  color: rgba(255, 255, 255, 1);
@@ -36,9 +35,9 @@ margin-right: 600px;
 }
 
 .header {
-  height: 50px;
+  height: 0px;
   width: 420px;
-  background: rgba(66, 66, 66, 1);
+  background: rgba(158, 136, 66, 1);
   text-align: center;
   position:relative;
   z-index: 100;
