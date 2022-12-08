@@ -76,6 +76,11 @@ module.exports.calendar_get = (req, res) => {
     res.render('calendinfo')
 }
 
+//Function for getting the resource file
+module.exports.resources_get = (req, res) => {
+    res.render('resourceinfo')
+}
+
 //Function for getting the staff information file
 module.exports.staff_get = (req, res) => {
 
