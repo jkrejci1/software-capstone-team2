@@ -2,9 +2,18 @@
 <!DOCTYPE html>
 <html lang='en'>
 
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    
+    body, form, h1, h2, p, table{
+        background-color: rgb(182, 176, 176); margin-left: auto; margin-right: auto; text-align: Center;
+        color: black;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 
+</style>
+
+<head>
+    
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Capstone Signup</title>
     
@@ -12,7 +21,7 @@
 
 <body style="align-self: center;">
 
-    <h1>Capstone Signup Page!</h1>
+    <h1>Fairmont Community Partnership Group, Inc.</h1>
 
     <!--Form for signing up-->
     <form>
@@ -54,6 +63,7 @@
                         <div class="_password error"></div>
                     </td>
                 </tr>
+            
                 <tr>
                     <td colspan="2" style="font-size: large; text-align: center;">
                         <label for="AboutYourself">About Yourself</label>
@@ -68,12 +78,13 @@
                 </tr>
                 <!--This is a place holder for the Tag system, don't worry about it for now-->
                 <tr>
+                    <table style="border: border-colorblack"; style="text-align: center;">
                     <td>
                         <select taggedInterests multiple>
-                            <option>option 1</option>
-                            <option>option 2</option>
-                            <option>option 3</option>
-                            <option>option 4</option>
+                            <option>Student</option>
+                            <option>Professor</option>
+                            <option>Local Volunteer</option>
+                            <option>Test</option>
                         </select> 
                     </td>
                 </tr>
@@ -81,8 +92,8 @@
         </Table>
         <!-- This is a weekely time card table for users to input the times they are available-->
         <table style="border: solid; border-color:black" style="text-align: center;">
-            <th>Available Times to Volunteer</th>
-            <tbody>
+            <th>Available Times to Volunteer</th><br>
+            <tbody><br>
                 <tr>
                     <td colspan="2">Sunday 
                         <input type="checkbox" name="SundayCheck" unchecked/>
