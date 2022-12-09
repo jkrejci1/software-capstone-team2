@@ -66,7 +66,7 @@ const userSchema = new mongoose.Schema({
 
     //User weekly availability information for volunteers
     weeklyAvailability: {
-        type: [String],
+        type: [Array],
         required: false
     }
 });
