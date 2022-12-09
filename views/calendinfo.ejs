@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang='en'>
- <head>
- 
-    <title>Calendar</title>
-    
-    <!--Link the header to this page-->
-   <%- include('partials/header'); -%>
- 
-   <link rel="stylesheet" href="cal.css">
-   <div id="calendar"></div>
-   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <head>
+        <div id="calendar"></div>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendar</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="cal.css">
+    </head>
+    <body>
+        <div id="top">
+            <p id="link"><a href="/">FCPG Inc</a></p>
+            <p id="link2"> <a href="/staff">Staff</a></p>
+            <p id="link3"> <a href="/calendar">Calendar</a></p>
+            <p id="link4"> <a href="/resources">Resources</a></p>
+            <h1 id="header"> Welcome to Fairmont <br>Community Partnership <br>Group, Inc. </h1>
+      
+         </div>
 
+        <ul>
+            <% if (user) { %>
+                <!--Handled in the controller and routes-->
+                <li><a href="/user">User Page</a></li>
+                <li><a href="/logout">Log Out</a></li>
+                <!--Greet the current user if there is one-->
+                <h2>Hello, <%= user.firstName %>!</h2>
+            <% } else { %>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            <% } %>
+        </ul>
 
+    </body>
 
-   
-  
- </head>
-
-
-
-<body>
-
-
-
- </body>
  
     <script src="moment.js"></script><script>    
   moment().format();</script>
