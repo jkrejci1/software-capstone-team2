@@ -16,6 +16,9 @@ body {
  -moz-user-select: none;
  -ms-user-select: none;
  user-select: none;
+ transform: scale(1.5);
+ transform-origin: 0 0;
+ margin-right: 600px;
 }
 
 
