@@ -350,7 +350,7 @@
 
         //Newer values added that are not implemented into the Database yet -MPK
         const _password = form._password.value
-        const _AboutYourself = form._AboutYourself.value
+        const userAbout = form._AboutYourself.value
         const weeklyAvailability = new Array(form.SundayCheck.checked, form.suFrom.value, form.suTo.value, 
                 form.MondayCheck.checked, form.monFrom.value, form.monTo.value, form.TuesdayCheck.checked, form.tueFrom.value, 
                 form.tueTo.value, form.WednesdayCheck.checked, form.wedFrom.value, form.wedTo.value, form.ThursdayCheck.checked, 
@@ -372,7 +372,7 @@
             const res = await fetch('/signup', {
                 method: 'POST',
                 //Can pass it as so as it has the same name as the value or use email: email, password: password
-                body: JSON.stringify({ email, password, firstName, lastName, number, userStatus, userSkills, _AboutYourself, weeklyAvailability}),
+                body: JSON.stringify({ email, password, firstName, lastName, number, userStatus, userSkills, userAbout, weeklyAvailability}),
                 //Send it as json to the server and DB if succusful
                 headers: { 'Content-Type': 'application/json' }
             })
