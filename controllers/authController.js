@@ -117,7 +117,7 @@ module.exports.signup_post = async (req, res) => {
     try {
         //Create an instance of the user to save to DB
         //Must pass what matches the schema, so the email and password
-        const user = await User.create({ email, password, firstName, lastName, number, userStatus, userSkills, userAbout, weeklyAvailability }) //Async, gives a promise; make sure the function is async then
+        const user = await User.create({ email, password, firstName, lastName, number, userStatus, userAbout, weeklyAvailability }) //Async, gives a promise; make sure the function is async then
 
         //Create a json web token to have the user be logged in for verification
         const token = createToken(user._id)
