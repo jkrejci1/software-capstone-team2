@@ -4,9 +4,49 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.p">
         <title>Document</title>
         <link rel="stylesheet" href="../styles.css">
+        
+        <style>
+        #logg{
+        font-size: 25px;
+        list-style-type: none;
+        text-align: right;
+        position: relative;
+        right: 50px;
+        top: 73px;
+        }
+        #signn{
+        font-size: 25px;
+        list-style-type: none;
+        text-align: right;
+        position: relative;
+        right: 130px;
+        top: 80px;
+        }
+        
+    
+        </style>
+
+
+        
+        
+        
     </head>
     <body>
         <div id="top">
+          <ul>
+            <% if (user) { %>
+                <!--Handled in the controller and routes-->
+                <li><a href="/user">User Page</a></li>
+                <li><a href="/logout">Log Out</a></li>
+                <!--Greet the current user if there is one-->
+                <h2>Hello, <%= user.firstName %>!</h2>
+            <% } else { %>
+                <li id=logg><a href="/login">Log In</a></li>
+                <li id=signn><a href="/signup">Sign Up</a></li>
+            <% } %>
+        </ul>
+        
+        
             <p id="link"><a href="/">FCPG Inc</a></p>
             <p id="link2"> <a href="/staff">Staff</a></p>
             <p id="link3"> <a href="/calendar">Calendar</a></p>
@@ -15,18 +55,7 @@
       
          </div>
 
-        <ul>
-            <% if (user) { %>
-                <!--Handled in the controller and routes-->
-                <li><a href="/user">User Page</a></li>
-                <li><a href="/logout">Log Out</a></li>
-                <!--Greet the current user if there is one-->
-                <h2>Hello, <%= user.firstName %>!</h2>
-            <% } else { %>
-                <li><a href="/login">Log In</a></li>
-                <li><a href="/signup">Sign Up</a></li>
-            <% } %>
-        </ul>
+      
 
     </body>
     <script>

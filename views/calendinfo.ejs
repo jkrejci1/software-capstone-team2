@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
-        <div id="calendar"></div>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calendar</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="cal.css">
-    </head>
-    <body>
-        <div id="top">
-            <p id="link"><a href="/">FCPG Inc</a></p>
-            <p id="link2"> <a href="/staff">Staff</a></p>
-            <p id="link3"> <a href="/calendar">Calendar</a></p>
-            <p id="link4"> <a href="/resources">Resources</a></p>
-            <h1 id="header"> Welcome to Fairmont <br>Community Partnership <br>Group, Inc. </h1>
-      
-         </div>
+ <head>
 
-        <ul>
-            <% if (user) { %>
-                <!--Handled in the controller and routes-->
-                <li><a href="/user">User Page</a></li>
-                <li><a href="/logout">Log Out</a></li>
-                <!--Greet the current user if there is one-->
-                <h2>Hello, <%= user.firstName %>!</h2>
-            <% } else { %>
-                <li><a href="/login">Log In</a></li>
-                <li><a href="/signup">Sign Up</a></li>
-            <% } %>
-        </ul>
 
-    </body>
+   <!--Link the header to this page-->
+   <%- include('partials/header'); -%>
+   
+   <link rel="stylesheet" href="cal.css">
+   <div id="calendar"></div>
+   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
 
- 
-    <script src="moment.js" defer></script>
-    <script> moment().format();</script>
 
-    <script type = "text/javascript" src="cal.js" defer></script>
- 
+   <script src="moment.js"></script><script>    
+    moment().format();</script>
+  
+  <script type = "text/javascript" src="cal.js"></script>
+   
+
+
+    <title>Calendar Information</title>
+    
+    
+  <style>
+  body{
+  transform: scale(1);
+  transform-origin: 0 0;
+  margin-right: 0px;}
+  </style>
+
+ </head>
+
+
+<body>
+
+
+ </body>
+
 
 </html>
 
