@@ -23,15 +23,7 @@
     </head>
     <body>
         <div id="top">
-            <p id="link"><a href="/">FCPG Inc</a></p>
-            <p id="link2"> <a href="/staff">Staff</a></p>
-            <p id="link3"> <a href="/calendar">Calendar</a></p>
-            <p id="link4"> <a href="/resources">Resources</a></p>
-            <h1 id="header"> Welcome to Fairmont <br>Community Partnership <br>Group, Inc. </h1>
-      
-         </div>
-
-        <ul>
+          <ul>
             <% if (user) { %>
                 <!--Handled in the controller and routes-->
                 <li><a href="/user">User Page</a></li>
@@ -43,6 +35,17 @@
                 <li id=signn><a href="/signup">Sign Up</a></li>
             <% } %>
         </ul>
+        
+        
+            <p id="link"><a href="/">FCPG Inc</a></p>
+            <p id="link2"> <a href="/staff">Staff</a></p>
+            <p id="link3"> <a href="/calendar">Calendar</a></p>
+            <p id="link4"> <a href="/resources">Resources</a></p>
+            <h1 id="header"> Welcome to Fairmont <br>Community Partnership <br>Group, Inc. </h1>
+      
+         </div>
+
+      
 
     </body>
     <script>
