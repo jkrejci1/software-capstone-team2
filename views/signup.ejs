@@ -340,7 +340,6 @@
         lnameError.textContent = ''
         numberError.textContent = ''
         _passwordError.textContent = ''
-        userAboutError.textContent = ''
         weeklyAvalailabilityError.textContent = ''
 
         //Get the email and password from name field
@@ -392,7 +391,6 @@
                 fnameError.textContent = data.errors.firstName
                 lnameError.textContent = data.errors.lastName
                 numberError.textContent = data.errors.number
-                userAboutError.textContent = data.errors.userAbout
                 weeklyAvalailabilityError = data.errors.weeklyAvailability
             }
             if (password != _password) {
