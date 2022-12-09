@@ -249,6 +249,8 @@
     const workPassError = document.querySelector('.workPassError')
     const numberError = document.querySelector('.number.error')
     const _passwordError = document.querySelector('._password.error')
+    const userAboutError = document.querySelector('.userAboutError')
+    const weeklyAvalailabilityError = document.querySelector('.weeklyAvailability.error')
 
     //Default permissions for user
     let userStatus = "customer"
@@ -338,6 +340,8 @@
         lnameError.textContent = ''
         numberError.textContent = ''
         _passwordError.textContent = ''
+        userAboutError.textContent = ''
+        weeklyAvalailabilityError.textContent = ''
 
         //Get the email and password from name field
         const email = form.email.value;
@@ -357,7 +361,7 @@
                 form.thuFrom.value, form.thuTo.value, form.FridayCheck.checked, form.friFrom.value, form.friTo.value, 
                 form.SaturdayCheck.checked, form.satFrom.value, form.satTo.value); 
         
-        console.log(weeklyAvailability);
+        console.log(weeklyAvailability, userAbout);
 
         //Test for first and last name text
         console.log('Your name:', firstName, lastName)
@@ -388,6 +392,8 @@
                 fnameError.textContent = data.errors.firstName
                 lnameError.textContent = data.errors.lastName
                 numberError.textContent = data.errors.number
+                userAboutError.textContent = data.errors.userAbout
+                weeklyAvalailabilityError = data.errors.weeklyAvailability
             }
             if (password != _password) {
                 console.log(Stringify({SundayCheck, suFrom, suTo}))
