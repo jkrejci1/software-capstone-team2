@@ -53,6 +53,24 @@ body {
         top: -159px;
     }
 
+    #logg{
+        color:#000000;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 25px;
+        position: relative;
+        left: 1515px;
+        top: -159px;
+    }
+
+    #signn{
+        color:#000000;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 25px;
+        position: relative;
+        left: 1515px;
+        top: -159px;
+    }
+
     #aboutme{
         text-align: Center;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
