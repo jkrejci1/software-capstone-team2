@@ -357,6 +357,7 @@
                 form.thuFrom.value, form.thuTo.value, form.FridayCheck.checked, form.friFrom.value, form.friTo.value, 
                 form.SaturdayCheck.checked, form.satFrom.value, form.satTo.value); 
         const userSkills = "temporary placeholder"
+        const _weeklyAvailability = Stringify(weeklyAvailability);
         
         console.log(weeklyAvailability);
 
@@ -372,7 +373,7 @@
             const res = await fetch('/signup', {
                 method: 'POST',
                 //Can pass it as so as it has the same name as the value or use email: email, password: password
-                body: JSON.stringify({ email, password, firstName, lastName, number, userStatus, userSkills, userAbout, weeklyAvailability}),
+                body: JSON.stringify({ email, password, firstName, lastName, number, userStatus, userSkills, userAbout, _weeklyAvailability}),
                 //Send it as json to the server and DB if succusful
                 headers: { 'Content-Type': 'application/json' }
             })
