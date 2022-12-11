@@ -42,7 +42,7 @@
             e.preventDefault();
 
             if (e.submitter.className == "AdminCheck"){
-                console.log("AdminCheck button pressed");
+                console.log(user.userStatus);
 
                 if (user.userStatus === 'Admin'){
                     form3.bill.style.display = "block"
