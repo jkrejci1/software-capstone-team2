@@ -24,14 +24,25 @@
             <th></th>
         </Table>
 
-        <button class="AdminCheck"></button>
+        <button class="AdminCheck"> Are you an Admin? </button>
+
+        <form class="form3">
+            <div name="bill" style="display: none;">
+                Welcome Admin
+            </div>
+        </form>
     </body>
 
     <script>
-        form2.addEventListener('submit', async (e) => {
+        form3.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
             if (e.submitter.className == AdminCheck){
                 console.log("AdminCheck button pressed");
+
+                if (user.userStatus === 'Admin'){
+                    form3.bill.style.display = "block"
+                }
             }
         })
     </script>
