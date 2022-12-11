@@ -24,7 +24,9 @@
             <th></th>
         </Table>
 
-        
+        <% if (user.userStatus === 'Admin') { %>
+            <div> this will only show if you are an Admin</div>
+        <% } %>
 
         <form class="form3">
             <button class="AdminCheck"> Are you an Admin? </button>
