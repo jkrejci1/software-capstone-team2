@@ -32,6 +32,11 @@
             <button class="AdminCheck"> Are you an Admin? </button>
             <div name="bill" style="display: none;">
                 Welcome Admin
+
+                <div name="bob"></div>
+                <table name="volunteer list">
+
+                </table>
             </div>
         </form>
     </body>
@@ -48,6 +53,7 @@
 
                 if (user.userStatus === 'Admin'){
                     form3.bill.style.display = "block"
+                    form3.bob.value = await fetch('fetch-VList', { });
                 }
             }
         })

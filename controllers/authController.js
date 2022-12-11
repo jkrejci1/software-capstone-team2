@@ -207,3 +207,10 @@ module.exports.fetch_password = async (request, response) => {
 module.exports.Admin_get = async (req, res) => {
     res.render('Admin');
 }
+
+module.exports.fetch_VList = async (req, res) => {
+    const { email, password, firstName, lastName, number, userStatus, userAbout, weeklyAvailability } = req.body 
+    const user = await User.find({ email, password, firstName, lastName, number, userStatus, userAbout, weeklyAvailability })
+
+    return user;
+}

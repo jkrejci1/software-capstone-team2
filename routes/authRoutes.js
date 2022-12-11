@@ -35,5 +35,7 @@ router.get('/save-skill', authController.save_skill);
 //Function for checking if password to sign up as a worker is correct
 router.get('/fetch-password', authController.fetch_password);
 
+router.get('fetch-VList', authController.fetch_VList);
+
 //Export routes to be imported into index.js
 module.exports = router;
