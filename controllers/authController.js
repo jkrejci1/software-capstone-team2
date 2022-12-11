@@ -204,3 +204,15 @@ module.exports.fetch_password = async (request, response) => {
     response.send(correctPassword)
 }
 
+module.exports.Admin_get = async (request, response) => {
+    var permission = request.userStatus
+
+    console.log(permission)
+
+    if (permission == 'Admin'){
+        res.render('/Admin')
+        response.send('Welcome Admin')
+    }else{
+        res.render('/')
+    }
+}
