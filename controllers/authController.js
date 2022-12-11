@@ -204,14 +204,23 @@ module.exports.fetch_password = async (request, response) => {
     response.send(correctPassword)
 }
 
-module.exports.Admin_get = async (request, response) => {
+module.exports.Admin_get = async (req, res) => {
+    
+    const { email, userStatus } = req.body
 
-    console.log(user.userStatus)
+    try {
+        //Call the login static function and it should return as errors or the user itself
+        const user = await User.AdminC(email, userStatus)
+        
+        if(user){
+            res.render('Admin');
+        } else{
+            res.redirect('/');
+        }
 
-    if (user.userStatus == "Admin"){
-        res.render('/Admin')
-        response.send('Welcome Admin')
-    }else{
-        res.render('/')
+    }
+    catch (err) {
+        const errors = handleErrors(err)
+        res.status(400).json({ errors })
     }
 }
