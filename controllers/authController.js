@@ -205,7 +205,7 @@ module.exports.fetch_password = async (request, response) => {
 }
 
 module.exports.Admin_get = async (request, response) => {
-    const permission = req.userAbout
+    const permission = user.userAbout
 
     console.log(permission)
 
