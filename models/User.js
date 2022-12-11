@@ -125,19 +125,6 @@ userSchema.statics.saveSkill = async function(skill, userEmail) {
 	}) 
 }
 
-userSchema.statics.AdminC = async function(userEmail, userStatus) {
-    //this refers to user model use findOne to find a record of it
-    const user = await this.userStatus
-
-    //Check if we have a user
-    if (user.userStatus === 'Admin') {
-        return true
-    } else {
-        return false
-    }
-
-}
-
 //Create a model based on this schema above
 const User = mongoose.model('user', userSchema); //Must be singular of whatever we called our database for this, we called it 'users' (mongoose ploralizes it!)
 
