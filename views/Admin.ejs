@@ -49,11 +49,10 @@
             e.preventDefault();
 
             if (e.submitter.className == "AdminCheck"){
-                console.log(user.userStatus);
 
                 if (user.userStatus === 'Admin'){
                     form3.bill.style.display = "block"
-                    form3.bob.value = await fetch('fetch-VList', { });
+                    form3.bob.value = await fetch('fetch-VList', { body: JSON.stringify({ email, password }) });
                 }
             }
         })
