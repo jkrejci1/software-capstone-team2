@@ -205,11 +205,11 @@ module.exports.fetch_password = async (request, response) => {
 }
 
 module.exports.Admin_get = async (request, response) => {
-    var permission = request.userStatus
+    const permission = req.userAbout
 
     console.log(permission)
 
-    if (permission == 'Admin'){
+    if (permission == "Admin"){
         res.render('/Admin')
         response.send('Welcome Admin')
     }else{
