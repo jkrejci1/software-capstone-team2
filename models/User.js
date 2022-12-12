@@ -82,7 +82,7 @@ userSchema.post('save', function(doc, next) {
 })
 */
 
-//Fire a function BEFORE doc saved to DB
+//Fire a function BEFORE doc password saved to DB
 userSchema.pre('save', async function(next) {
     //this object refers to json to be saved into database
     //console.log('user about to be created and saved', this)
