@@ -1,3 +1,5 @@
+# Software Systems Capstone Project (Fairmont) 
+
 Capstone project made for Lewis University, created for Fairmont Community Partnership Group, Inc.
 The purpose of this project is to create a website that can serve as a design that can later be added to,
 in order to create an environment to organize and schedule events and keep track of volunteers.
