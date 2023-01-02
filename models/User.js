@@ -71,17 +71,6 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-//Mongoose hooks pre/post (use the pre hook to hash a password before it's saved in DB)
-//Fire a function after doc saved in DB MONGOOSE HOOKS EXAMPLE IF TO BE USED LATER
-/**
-userSchema.post('save', function(doc, next) {
-    //Sends that the user has been saved to the console after the save event has happened in the database
-    //console.log('New user has been saved!')
-    
-    next();
-})
-*/
-
 //Fire a function BEFORE doc password saved to DB
 userSchema.pre('save', async function(next) {
     //this object refers to json to be saved into database

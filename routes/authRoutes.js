@@ -30,7 +30,6 @@ router.get('/Admin', authController.Admin_get);
 //Server side functions
 //Function for saving skill
 router.get('/save-skill', authController.save_skill);
-//INSERT CODE TO SAVE ABOUT ME INFORMATION HERE
 
 //Function for checking if password to sign up as a worker is correct
 router.get('/fetch-password', authController.fetch_password);

@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 //Required for handeling parsing urls
 var url = require('url');
 
-//Function to handle errors
+//Function to handle errors for registration
 const handleErrors = (err) => {
     //The err.message will be the custom error messages we made in the User schema!
     console.log(err.message, err.code) //Provides the error type and its code if not unique
@@ -183,9 +183,7 @@ module.exports.save_skill = async (request, response) => {
 
 }
 
-//INSERT CODE TO SAVE ABOUT ME INFORMATION HERE
-
-//Function to see if password entered was correct
+//Function to see if company passcode entered was correct
 module.exports.fetch_password = async (request, response) => {
     console.log("In the server side to fetch the password")
     //Gets what was sent to the server side
